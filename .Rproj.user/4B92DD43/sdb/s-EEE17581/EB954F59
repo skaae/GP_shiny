@@ -1,0 +1,16 @@
+{
+    "contents" : "%!Rnw root = ../master.Rnw\n\\section{Introduction}\nIt is of interest to predict which ER+ patients that will benefit from tamoxifan and\nchemotherapy. \\cite{Fisher:1997wg} has shown that ER+ node negative patients benefits from \ntamoxifan and chemotherapy. The authors were not able to identify which subgroup benefited\nthed most from the combination theraby, thus given that 50\\% of patients fall into the \nER+ node negative group alot of patients recieve inefficient chemotherapy. \nFurthermore there is little discussion about use of adjuvant chemotherapty for ER-, node negative\npatients. On the oder hand it is debated if ER+ node positive patients should recieve both\nTamoxifen and chemotherapy or only Tamoxifen, because the benefit of additional chemotherapy\nis small. It is of interest to identify the subgroup of patients who benefits from \nchemotherapy \\parencite[Discussion]{Partin:2011bx}\\footnote{Artiklen er ret positivt stemt overfor\noncotype, (21 reccurence gene signature) + en af forfatterne er affiliteret med genomic Health = producenten\naf oncotype}\n\n%% ER det altid node negative ER+ patienter som gen assays behandler..?\n%%undersoeg hvor det er node negative ER+ patients som er med i studierne...\nI should model the patients into risk groups i.e low risk, intermediate risk and \nhigh risk groups. These groups are interesting because they differ in the recommended\ntreatment. One could define the define the risk based on survival in years like the \\cite{Marchionni:2013vg}\nstudy. \n \n\n\\subsection{Breast cancer sub typing}\nFour main types of breast cancer can be identified. Basal-like, Luminal A, \nLuminal B, and HER2 like, as shown in figure \\ref{fig:breast_subtypes}.%\n%\n\\begin{figure}[htbp]\n   \\centering\n   \\includegraphics[width=1\\textwidth]{figs/breastcancer_division.jpg} \n   \\caption{Divison of breast cancer into four subtypes \n\\parencite{Sotiriou:2009hi}}\n   \\label{fig:breast_subtypes}\n\\end{figure}%\n%\n%\n\\subsection{Evaluation of patient risk}\nSeveral methods exists for stratifying breast cancer patients. \nMethods based on clinical parameters include st. Gallen consensus criteria \\parencite{Goldhirsch:2013dt}, Adjuvant! online \\parencite{Ravdin:2001uh} and Nottingham prognostic index (NPI) \\parencite{Galea:1992tf}.\\\\\\\\%\n%\nRecent studies have shown that the outcome of breast cancer patients can be predicted from gene expression data \\parencite{vantVeer:2002ib} and several methods are\navailable for stratification of breast cancer patients. Some methods include\nMammaPrint \\parencite{Glas:2006ue} \nPAM50 Breast Cancer Intrinsic Subtype Classifier \\parencite{Parker:2009gx}, \nOncotypeDX \\parencite{Paik:2004bm}, \nMapQuant Dx \\parencite{Loi:2007bf}\nand and Theros Breast Cancer Index \\parencite{Ma:2008fr}\nsee \\cite{Marchionni:2008ue} for a recent review.",
+    "created" : 1387280262567.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4170865861",
+    "id" : "EB954F59",
+    "lastKnownWriteTime" : 1387280268,
+    "path" : "~/Documents/Speciale/breast_cancer/documents/introduction.tex",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "tex"
+}

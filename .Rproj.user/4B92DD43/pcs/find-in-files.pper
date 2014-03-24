@@ -1,0 +1,10 @@
+{
+    "dialog-state" : {
+        "caseSensitive" : false,
+        "filePatterns" : [
+        ],
+        "path" : "/Users/sorensonderby/Documents/Speciale/breast_cancer",
+        "query" : "\\ref{eq:y_dist}",
+        "regex" : false
+    }
+}

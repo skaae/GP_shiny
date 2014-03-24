@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1389017161278.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B78414CA",
+    "lastKnownWriteTime" : 2694679115918737408,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "hyperparams",
+        "contentUrl" : "content?title=hyperparams&file=19261d4b93b44ebea44b33d9bd9565c4.htm",
+        "displayedObservations" : 20,
+        "displayedVariables" : 2,
+        "totalObservations" : 20,
+        "variables" : 2
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

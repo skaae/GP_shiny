@@ -1,0 +1,16 @@
+{
+    "contents" : "% !Rnw root = ../master.Rnw\n\\section{Data collection} \\label{sec:methods_data_collection}\nBreast cancer patients with \"clinical\" data and genomic data available were identified\nby litterature search. \\cite{HaibeKains:2012gp} has previously collected collected\nmost avaialble breast cancer data, since this work \\cite{Curtis:2012il}  has\npuplished a large study and the TCGA breast cancer data has been made available \n\\parencite{HaibeKains:2012gp}. This work does only use the data from \n\\cite{HaibeKains:2012gp} and \\cite{Curtis:2012il}. The TCGA dataset is time \nconsuming and difficult to clean and was therefore left out.\n\nFor \\emph{clinical} data the following critere was used:\n\\begin{itemize}\n  \\item Either overall survival or recurrence free survival must be avaible. \n    Overall survival is prefered. \n  \\item Of the following clinical mesurments at most \\Sexpr{nas_cutoff} must be missing:\n      tumor size, nodal involvement, age, tumor grade, treatment, her2 and ER.\\\\\n  \\item her2 and er is allowed to be either measured or infered from genomic data.\n        Measurements are prefferede.\n\\end{itemize}%\n%\nFor \\emph{genomic} data the following critere was used:\n\\begin{itemize}\n  \\item Must have clinical data available.\n  \\item The platform must be either Agilent, Affymetrix or Illumina.\n\\end{itemize}%\n%\n\\subsection{normalization and missing values}\nThe target for all training was survival time in days. The following covariates were included in the model\n\\begin{enumerate}\n    \\item age [Continuous, years]\n    \\item her2 receptor status, [Categorical, 0/1]\n    \\item Estrogen receptor status [Categorical, 0/1]\n    \\item Nodal involvement [Continuous, number of nodes]\n    \\item Tumor size [Continuous, cm]\n    \\item Histological grade [Ordinal, 1/2/3]\n    \\item Treatment any [Categorical, 0/1]\n    \\item Treatment Chemo therapy [Categorical, 0/1]\n    \\item Treatment Hormonal therapy [Categorical, 0/1]\n    \\item Treatment Radio therapy [Categorical, 0/1]\n\\end{enumerate}\nContentious and Ordinal covariates were scaled to zero mean and unit variance. Categorical covariates where represented as $\\pm$1 if the number of categories was equal to 2, otherwise \\emph{one Hot} encode, e.g a n category variable would be encoded using a row vector of length n: \n\\begin{equation}\n\\begin{matrix} \n\\text{category 1: } & \\text{category 2: } & \\text{category n: } \\\\ \n[1, -1 ...n]         & [-1,1...n]           & [-1,-1...1] \\\\ \n\\end{matrix}\n\\end{equation}\nFor all but random survival models missing covariates were replaced by median values.\n\\fixme{explain survival forest missing value strategy + if I use knnimpute explain} ",
+    "created" : 1387282304017.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "489736190",
+    "id" : "F79D2B9D",
+    "lastKnownWriteTime" : 1387456408,
+    "path" : "~/Documents/Speciale/breast_cancer/documents/methods_data.Rnw",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "sweave"
+}

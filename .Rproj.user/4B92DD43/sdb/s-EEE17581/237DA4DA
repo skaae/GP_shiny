@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1387443689413.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "237DA4DA",
+    "lastKnownWriteTime" : 3832951634714179684,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "tab.clinical",
+        "contentUrl" : "content?title=tab.clinical&file=35af854b7ad24c24809e813574fe2e98.htm",
+        "displayedObservations" : "1000",
+        "displayedVariables" : 36,
+        "totalObservations" : "3876",
+        "variables" : "36"
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

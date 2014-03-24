@@ -1,0 +1,16 @@
+{
+    "contents" : "library(shiny)\nsource(\"gaussProcess.R\")\nsource(\"calcSigma.R\")\nsource(\"calcLinear.R\")\nrequire(MASS)\nrequire(plyr)\nrequire(reshape2)\nrequire(ggplot2)\n# Define server logic required to generate and plot a random distribution\nshinyServer(function(input, output) {\n  \n  # Expression that generates a plot of the distribution. The expression\n  # is wrapped in a call to renderPlot to indicate that:\n  #\n  #  1) It is \"reactive\" and therefore should be automatically \n  #     re-executed when inputs change\n  #  2) Its output type is a plot \n  #\n  x_samples = 200\n  x_star <- seq(-pi*5,pi*5,length.out=x_samples)\n  output$GaussianProcess <- renderPlot({\n        \n    n_samples=input$n_samples\n    obs_noise=input$noise\n    n_obs = input$n_obs\n    \n    mySig <- function(x1,x2) calcSigma(x1,x2,input$length_scale,input$sigma_mag)\n    #mySig <- function(x1,x2) calcLinear(x1,x2,input$length_scale)\n    \n    set.seed(12345)\n    \n    # 2. Now let's assume that we have some known data points;\n    # this is the case of Figure 2.2(b). In the book, the notation 'f'\n    # is used for f$y below.  I've done this to make the ggplot code\n    # easier later on.\n    \n   \n    s = seq(1:(5*n_obs))\n    idx = sample(s,n_obs)\n  \n    f <- data.frame(x=(pi*seq(-3,3,length.out=5*n_obs))[idx],\n                    y=(sin(pi*seq(-3,3,length.out=5*n_obs))+rnorm(n_obs)/5)[idx])\n    \n    # Calculate the covariance matrices\n    # using the same x_star values as above\n    x <- f$x\n    k.xx <- mySig(x,x)\n    k.xxs <- mySig(x,x_star)\n    k.xsx <- mySig(x_star,x)\n    k.xsxs <- mySig(x_star,x_star)\n    \n    # Recalculate the mean and covariance functions\n    f.bar.star <- k.xsx%*%solve(k.xx + obs_noise^2*diag(1, ncol(k.xx)))%*%f$y\n    cov.f.star <- k.xsxs - k.xsx%*%solve(k.xx + obs_noise^2*diag(1, ncol(k.xx)))%*%k.xxs\n    \n    # Recalulate the sample functions\n    values <- matrix(rep(0,length(x_star)*n_samples), ncol=n_samples)\n    for (i in 1:n_samples) {\n      values[,i] <- mvrnorm(1, f.bar.star, cov.f.star)\n    }\n    values <- cbind(x=x_star,as.data.frame(values))\n    values <- melt(values,id=\"x\")\n    \n\n    df.y = data.frame(x=f$x,ymax=f$y+obs_noise,ymin=f$y-obs_noise)\n\n    \n    df = data.frame(x=x_star,y=f.bar.star)\n    gg <- ggplot(values, aes(x=x,y=value)) + \n      geom_line(aes(group=variable), colour=\"grey80\") +\n      geom_line(data=df,aes(x=x,y=y),colour=\"red\", size=1) + \n    geom_point(data=f,aes(x=x,y=y)) +\n    geom_errorbar(data=df.y,aes(x=x,y=NULL,ymin=ymax, ymax=ymin), width=0.2) +\n    theme_bw() +\n    ylab(\"output,y\") +\n    xlab(\"input, x\") +\n    opts(title = \"GP\")\n    print(gg)\n\n    #rm(b,x,values,x_star,f.bar.star,obs_noise,f,gg)\n  })\n  output$covariance <- renderPlot({\n    mySig <- function(x1,x2) calcSigma(x1,x2,input$length_scale,input$sigma_mag)\n    k.xsxs <- mySig(x_star,x_star)\n    image(k.xsxs,main=\"Covariance fuction\",col=gray.colors(128))\n  })\n})\n",
+    "created" : 1387751932894.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "103993791",
+    "id" : "D443048C",
+    "lastKnownWriteTime" : 1386954337,
+    "path" : "~/Documents/GP_shiny/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

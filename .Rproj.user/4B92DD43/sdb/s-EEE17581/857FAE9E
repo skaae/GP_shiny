@@ -1,0 +1,16 @@
+{
+    "contents" : "%!TEX root=../master.tex\n\\section{Evaluation of clinical models}\\FloatBarrier\n\\begin{table}[tb]\n    \\caption{AUC scores for baseline models}\n    \\label{tab:tablename}\n    \\begin{center}\n        \\input{table/baseline_auc_matlab.tex}\n    \\end{center}\n\\end{table}\n\n\\begin{table}[tb]\n    \\caption{AUC training performance for different GP based models}\n    \\label{tab:tablename}\n    \\tiny\n    \\begin{center}\n        \\input{table/train_auc_gp_matlab.tex}\n    \\end{center}\n\\end{table}\n\n\n\\begin{figure}[tb]\n    \\begin{center}\n        \\includegraphics[width=1\\textwidth]{figs/AUC_surv_models.eps}\n    \\end{center}\n    \\caption{AUC score for GP process based models and base line models.}\n    \\label{fig:gp_auc}\n\\end{figure}\n\n\n\n\n\\begin{figure}[tb]\n    \\begin{center}\n        \\includegraphics[width=1\\textwidth]{figs/conditional_surv_models.eps}\n    \\end{center}\n    \\caption{Different GP processes conditioned on size, age and number of nodes. Variables not conditioned on\n    are kept at their mean value. Note that the y axis in the top row is log-hazard (increasing with increased risk) and \n    the bottom row is Expected life (decreasing with increased risk)}\n    \\label{fig:gp_auc}\n\\end{figure}\n\n\n",
+    "created" : 1387283898885.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3851610795",
+    "id" : "857FAE9E",
+    "lastKnownWriteTime" : 1387283922,
+    "path" : "~/Documents/Speciale/breast_cancer/documents/results_gp_baseline.tex",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "tex"
+}
